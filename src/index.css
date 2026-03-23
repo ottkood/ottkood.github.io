@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 187 52% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 220 25% 18%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 215 12% 48%;
+
+    --accent: 187 52% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 187 52% 46%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 187 52% 46%;
+
+    --rank-bg: 187 52% 46%;
+    --rank-fg: 0 0% 100%;
+    --export-bg: 145 60% 42%;
+    --export-fg: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Financier Text', Georgia, 'Times New Roman', serif;
+  }
+}
+
+@layer utilities {
+  .drag-card {
+    @apply bg-card rounded-xl shadow-sm border transition-shadow duration-200;
+  }
+  .drag-card:hover {
+    box-shadow: 0 4px 20px -4px hsl(187 52% 46% / 0.12), 0 2px 8px -2px hsl(220 25% 10% / 0.06);
+  }
+  .drag-card-dragging {
+    box-shadow: 0 12px 40px -8px hsl(187 52% 46% / 0.2), 0 4px 16px -4px hsl(220 25% 10% / 0.1);
+    @apply ring-2 ring-primary/30;
+  }
+  .rank-badge {
+    background: hsl(var(--rank-bg));
+    color: hsl(var(--rank-fg));
+    @apply text-sm font-bold w-8 h-8 rounded-lg flex items-center justify-center shrink-0;
+  }
+  .btn-export {
+    background: hsl(var(--export-bg));
+    color: hsl(var(--export-fg));
+  }
+  .btn-export:hover {
+    background: hsl(145 60% 38%);
+  }
+  .btn-export:active {
+    transform: scale(0.97);
+  }
+}
